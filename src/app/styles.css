@@ -1,0 +1,32 @@
+.splide__pagination--ltr {
+  display: flex;
+  justify-content: space-between;
+  gap: 7px;
+  flex-direction: row;
+}
+
+.splide__pagination__page {
+  padding: 4.2px;
+  border: 2px solid black;
+  border-radius: 100%;
+  background-color: white;
+}
+
+button.is-active {
+  background: black;
+}
+
+@media (prefers-color-scheme: dark) {
+  button.adaptive {
+    background: white !important;
+    background-color: white !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  button.adaptive.is-active {
+    background: black !important;
+    border: 1.5px solid #fff;
+  }
+}
+  
