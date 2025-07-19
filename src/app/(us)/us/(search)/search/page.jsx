@@ -1,10 +1,10 @@
+'use server'
+
 import qs from 'qs'
 import { getSearchResults, ssr_internal_method } from '../lib/get-search-results';
 import Client from './client';
 import { getHasSsrInternalMethodExecutedFlag, setHasSsrInternalMethodExecutedFlag } from '../lib/redis';
 import { HITS_PER_PAGE } from '../config';
-
-export const dynamic = 'force-dynamic'
 
 export default async function Page({ searchParams: searchParamsInstance }) {
   let facetFilters
