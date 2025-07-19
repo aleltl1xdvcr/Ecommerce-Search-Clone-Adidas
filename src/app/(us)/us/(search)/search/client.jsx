@@ -5,6 +5,7 @@ import GetMoreItems from "../components/get-more-items"
 import Part1 from "../components/part1"
 import Results from "../components/results"
 import useQueryStore from "../store/search-store"
+import { BASE_API_URL } from './constants'
 
 export default function Search({ ssrData, facetFilters }) {
   const setMetadataStore = useQueryStore(state => state.setMeta)
@@ -17,7 +18,8 @@ export default function Search({ ssrData, facetFilters }) {
     }
 
     const handleUnload = () => {
-      navigator.sendBeacon("/api/delete-ssr-internal-method-flag");
+      const url = `${BASE_API_URL}/api/delete-ssr-internal-method-flag`
+      navigator.sendBeacon(url);
     };
 
     window.addEventListener("beforeunload", handleUnload);
