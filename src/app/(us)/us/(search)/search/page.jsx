@@ -4,7 +4,7 @@ import Client from './client';
 import { getHasSsrInternalMethodExecutedFlag, setHasSsrInternalMethodExecutedFlag } from '../lib/redis';
 import { HITS_PER_PAGE } from '../config';
 
-export const dynamic = 'force-static' 
+export const dynamic = 'force-dynamic'
 
 export default async function Page({ searchParams: searchParamsInstance }) {
   let facetFilters
@@ -90,6 +90,8 @@ export default async function Page({ searchParams: searchParamsInstance }) {
   if (hasSsrInternalMethodExecutedFlag !== ssr_internal_method) {
     data = await handleSubmit()
   }
+
+  if (!data) return
 
   return (
     <>
